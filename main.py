@@ -2,7 +2,7 @@ from telebot import types
 import telebot
 import sqlite3
 
-id_admin = 936477031
+id_admin = 936477032
 bot = telebot.TeleBot('6772021036:AAHY76lzKXiSTeiJQ9INRqER_C79LT_K7IE')
 
 admin_panel = types.ReplyKeyboardMarkup()
