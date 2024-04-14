@@ -2,13 +2,14 @@ from telebot import types
 import telebot
 import sqlite3
 import logging
+import json
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
-id_admin = 936477032
-bot = telebot.TeleBot('6772021036:AAHY76lzKXiSTeiJQ9INRqER_C79LT_K7IE')
+id_admin = 936477032 #айди админа
+bot = telebot.TeleBot('6772021036:AAHY76lzKXiSTeiJQ9INRqER_C79LT_K7IE') #токен ботика
 
 '''Функция старт'''
 @bot.message_handler(commands=['start'])
@@ -56,14 +57,45 @@ def reg_func(message):
     bot.register_next_step_handler(message, user_name)
     logging.info('Команда регистрация запущена')
 
+'''Функция для получения имя пользователя из бд'''
+@bot.message_handler(commands=['login'])
+def login_func(message):
+    bot.send_message(message.chat.id, 'Введите имя пользователя, которое вы указали при регистрации')
+    bot.register_next_step_handler(message, login_name_func)
 
+def login_name_func(message):
+    global user_name_from_bd
+    user_name_from_bd = message.text.strip()
+    with open('users.json') as f:
+        file_content = f.read()
+        templates = json.loads(file_content)
+    for name in templates.values():
+        for i in name:
+            if i == user_name_from_bd:
+                bot.send_message(message.chat.id, 'Введите пароль')
+                bot.register_next_step_handler(message, login_password_func)
+                break
+
+def login_password_func(message):
+    global password_login
+    password_login = message.text.strip()
+    with open('users.json') as f:
+        file_content = f.read()
+        templates = json.loads(file_content)
+    for i in templates.values():
+        for j in i:
+            if j == password_login:
+                bot.send_message(message.chat.id, 'Вы успешно зашли')
+                break
+
+'''получение имя пользователя'''
 def user_name(message):
     global name
     name = message.text.strip()
     bot.send_message(message.chat.id, 'Введите пароль!')
     bot.register_next_step_handler(message, user_password)
 
-
+'''получение пароля пользователя'''
 def user_password(message):
     password = message.text.strip()
     connection = sqlite3.connect('telebot.sql')
@@ -86,13 +118,24 @@ def array_func(message):
 
     cursor.execute("SELECT * FROM users")
     users = cursor.fetchall()
-    info = ''
+    name = []
+    passwords = []
     for i in users:
-        info += f'Имя: {i[1]}, Пароль: {i[2]}\n'
+        if i[1] not in name:
+            name.append(i[1])
+        if i[2] not in passwords:
+            passwords.append(i[2])
+    
+    to_json = {'Name_users': name, 'Passwords_users': passwords}
+    
+    with open('users.json', 'w') as f:
+        f.write(json.dumps(to_json))
+    
+    with open('users.json') as f:
+        bot.send_message(message.chat.id, 'Список пользователей')
+        bot.send_message(message.chat.id, f.read())
     cursor.close()
     connection.close()
-    bot.send_message(message.chat.id, 'Список пользователей')
-    bot.send_message(message.chat.id, info)
 
 
 '''Обработчик сообщений'''
