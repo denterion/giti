@@ -19,15 +19,16 @@ def start_func(message):
     start_panel.row(types.KeyboardButton('/admin'), types.KeyboardButton('/user'))
     bot.send_message(message.chat.id, 'Здравстуйте, это телеграм бот под названием zOL(Здоровый Образ жизни)')
     bot.send_message(message.chat.id, 'Вы хотите войти как пользователь или как админ?', reply_markup=start_panel)
-    bot.send_message(message.chat.id, 'Чтобы войти как админ используйте команду "/admin"')
-    bot.send_message(message.chat.id, 'Чтобы войти как пользователь используйте команду "/user"')
+    bot.send_message(message.chat.id, 'Чтобы войти как админ используйте команду /admin')
+    bot.send_message(message.chat.id, 'Чтобы войти как пользователь используйте команду /user')
 
 
 '''Функция user'''
 @bot.message_handler(commands=['user'])
 def user_func(message):
     user_panel = types.ReplyKeyboardMarkup()
-    user_panel.row(types.KeyboardButton('Регистрация'), types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Войти'))
+    user_panel.row(types.KeyboardButton('Регистрация'), types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Войти'),
+                   types.KeyboardButton('План питания'))
     bot.send_message(message.chat.id, 'Здравствуйте дорогой пользователь, команды специально для вас', reply_markup=user_panel)
 
 
@@ -59,23 +60,59 @@ def reg_func(message):
     bot.register_next_step_handler(message, user_name)
     logging.info('Команда регистрация запущена')
 
-
+"""План питания"""
 @bot.message_handler(commands=['meal_plan'])
 def meal_plan_func(message):
     markup_plan_meal = types.ReplyKeyboardMarkup()
-    markup_plan_meal.row(types.KeyboardButton('1_day_meal'), types.KeyboardButton('2_day_meal'),
-                         types.KeyboardButton('3_day_meal'), types.KeyboardButton('4_day_meal'),
-                         types.KeyboardButton('5_day_meal'), types.KeyboardButton('6_day_meal'),
-                         types.KeyboardButton('7_day_meal'))
-    bot.send_message(message.chat.id, 'Сейчас мы составим план питания на неделю', reply_markup=markup_plan_meal)
-    bot.register_next_step_handler(message, day_plan_1)
+    markup_plan_meal.row(types.KeyboardButton('1-day'), types.KeyboardButton('2-day'),
+                         types.KeyboardButton('3-day'), types.KeyboardButton('4-day'),
+                         types.KeyboardButton('5-day'), types.KeyboardButton('6-day'),
+                         types.KeyboardButton('7-day'))
+    markup_plan_meal.add(types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'Сейчас мы составим план питания вам на неделю', reply_markup=markup_plan_meal)
 
-
+'''Первый день плана питания'''
 def day_plan_1(message):
     markup_1_day = types.ReplyKeyboardMarkup()
-    markup_1_day.row(types.KeyboardButton('Завтрак1'), types.KeyboardButton('Обед1'),
-                     types.KeyboardButton('Ужин1'), types.KeyboardButton('Перекус1'))
-    bot.send_message(message.chat.id, 'Каждый день состоит из 3 приемов пищи и одного перекуса', reply_markup=markup_1_day)
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 1 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/1-день.txt", "rb"))
+
+def day_plan_2(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 2 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/2-день.txt", "rb"))
+
+def day_plan_3(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 3 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/3-день.txt", "rb"))
+
+def day_plan_4(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row( types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 4 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/4-день.txt", "rb"))
+
+def day_plan_5(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 5 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/5-день.txt", "rb"))
+
+def day_plan_6(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 6 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/6-день.txt", "rb"))
+
+def day_plan_7(message):
+    markup_1_day = types.ReplyKeyboardMarkup()
+    markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
+    bot.send_message(message.chat.id, 'План 7 дня', reply_markup=markup_1_day)
+    bot.send_document(message.chat.id, open("План_Питания/7-день.txt", "rb"))
 
 
 '''Функция для получения имя пользователя из бд'''
@@ -178,9 +215,7 @@ def array_func(message):
 @bot.message_handler()
 def sundry_func(message):
     markup_1_day_back = types.ReplyKeyboardMarkup()
-    markup_1_day_back.row(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('План питания'),
-                          types.KeyboardButton('Завтрак1'), types.KeyboardButton('Обед1'),
-                          types.KeyboardButton('Ужин1'), types.KeyboardButton('Перекус1'))
+    markup_1_day_back.row(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('План питания'))
     if message.text == 'Посмотреть список пользователей' and message.from_user.id == id_admin:
         array_func(message)
     elif message.text == 'Вернуться в начало':
@@ -191,20 +226,24 @@ def sundry_func(message):
         meal_plan_func(message)
     elif message.text == 'Регистрация':
         reg_func(message)
-    elif message.text == '1_day_meal':
-        bot.register_next_step_handler(message, day_plan_1)
+    elif message.text == '1-day':
+        day_plan_1(message)
+    elif message.text == '2-day':
+        day_plan_2(message)
+    elif message.text == '3-day':
+        day_plan_3(message)
+    elif message.text == '4-day':
+        day_plan_4(message)
+    elif message.text == '5-day':
+        day_plan_5(message)
+    elif message.text == '6-day':
+        day_plan_6(message)
+    elif message.text == '7-day':
+        day_plan_7(message)
     elif message.text == 'Войти':
         login_func(message)
     elif message.text == 'Вы успешно зашли':
         pass
-    elif message.text == 'Завтрак1':
-        bot.reply_to(message, 'Завтрак: Омлет из двух яиц с овощами и зеленью.', reply_markup=markup_1_day_back)
-    elif message.text == 'Обед1':
-        bot.reply_to(message, 'Обед: Греческий салат с куриной грудкой.', reply_markup=markup_1_day_back)
-    elif message.text == 'Ужин1':
-        bot.reply_to(message, 'Ужин: Запеченый лосось с овощами.', reply_markup=markup_1_day_back)
-    elif message.text == 'Перекус1':
-        bot.reply_to(message, 'Перекус: Грейпфрут.', reply_markup=markup_1_day_back)
     else:
         bot.reply_to(message, 'Это точно команда или кодовое слово? Или Вы не админ?')
         logging.info('Ответ отправлен')
