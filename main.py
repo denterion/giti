@@ -71,7 +71,7 @@ def meal_plan_func(message):
 def day_plan_1(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 1 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/1-день.txt", "rb"))
 
@@ -79,7 +79,7 @@ def day_plan_1(message):
 def day_plan_2(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 2 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/2-день.txt", "rb"))
 
@@ -87,7 +87,7 @@ def day_plan_2(message):
 def day_plan_3(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 3 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/3-день.txt", "rb"))
 
@@ -95,7 +95,7 @@ def day_plan_3(message):
 def day_plan_4(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row( types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 4 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/4-день.txt", "rb"))
 
@@ -103,7 +103,7 @@ def day_plan_4(message):
 def day_plan_5(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 5 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/5-день.txt", "rb"))
 
@@ -111,7 +111,7 @@ def day_plan_5(message):
 def day_plan_6(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 6 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/6-день.txt", "rb"))
 
@@ -119,7 +119,7 @@ def day_plan_6(message):
 def day_plan_7(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План питания'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 7 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Питания/7-день.txt", "rb"))
 
@@ -132,14 +132,14 @@ def training_func(message):
                          types.KeyboardButton('3-день-тренировок'), types.KeyboardButton('4-день-тренировок'),
                          types.KeyboardButton('5-день-тренировок'), types.KeyboardButton('6-день-тренировок'),
                          types.KeyboardButton('7-день-тренировок'))
-    markup_plan_training.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_plan_training.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'Сейчас мы составим план питания вам на неделю', reply_markup=markup_plan_training)
 
 '''План тренировок 1 день'''
 def day_plan_training_1(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 1 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/1-день-тренировок.txt", "rb"))
 
@@ -147,7 +147,7 @@ def day_plan_training_1(message):
 def day_plan_training_2(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 2 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/2-день-тренировок.txt", "rb"))
 
@@ -155,7 +155,7 @@ def day_plan_training_2(message):
 def day_plan_training_3(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 3 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/3-день-тренировок.txt", "rb"))
 
@@ -163,7 +163,7 @@ def day_plan_training_3(message):
 def day_plan_training_4(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 4 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/4-день-тренировок.txt", "rb"))
 
@@ -171,7 +171,7 @@ def day_plan_training_4(message):
 def day_plan_training_5(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 5 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/5-день-тренировок.txt", "rb"))
 
@@ -179,7 +179,7 @@ def day_plan_training_5(message):
 def day_plan_training_6(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 6 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/6-день-тренировок.txt", "rb"))
 
@@ -187,7 +187,7 @@ def day_plan_training_6(message):
 def day_plan_training_7(message):
     markup_1_day = types.ReplyKeyboardMarkup()
     markup_1_day.row(types.KeyboardButton('План тренировок'), types.KeyboardButton('Вернуться в начало'))
-    markup_1_day.add(types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_1_day.add(types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'План 7 дня', reply_markup=markup_1_day)
     bot.send_document(message.chat.id, open("План_Тренировок/7-день-тренировок.txt", "rb"))
 
@@ -211,7 +211,7 @@ def reg_func(message):
 @bot.message_handler(commands=['login'])
 def login_func(message):
     markup_login = types.ReplyKeyboardMarkup()
-    markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'Введите имя пользователя, которое вы указали при регистрации', reply_markup=markup_login)
     bot.register_next_step_handler(message, login_name_func)
 
@@ -224,7 +224,7 @@ def login_name_func(message):
         file_content = f.read()
         templates = json.loads(file_content)
     markup_login = types.ReplyKeyboardMarkup()
-    markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться к выбору пользователя'))
     flag = False
     for name in templates.values():
         for i in name:
@@ -245,19 +245,20 @@ def login_password_func(message):
     with open('users.json') as f:
         file_content = f.read()
         templates = json.loads(file_content)
-    markup_login = types.ReplyKeyboardMarkup()
-    markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться в выбору пользователя'))
-    flag = False
-    for i in templates.values():
-        for j in range(len(i)):
-            if i[j] == password_login:
-                flag = True
-                bot.send_message(message.chat.id, 'Вы успешно зашли', reply_markup=markup_login)
-        if flag == True:
-            break
-        elif flag == False:
-            bot.send_message(message.chat.id, 'Пароль неверный', reply_markup=markup_login)
-            break
+        markup_login = types.ReplyKeyboardMarkup()
+        markup_login.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться к выбору пользователя'))
+        flag = False
+        for l in templates.items():
+            for i in range(len(l) - 1):
+                if l[i] == 'Passwords_users':
+                    for ps in l[i + 1]:
+                        if ps == password_login:
+                            flag = True
+                            bot.send_message(message.chat.id, 'Вы успешно зашли', reply_markup=markup_login)
+                    if flag == True:
+                        time.sleep(4)
+                        start_func(message)
+                        break
 
 
 '''получение имя пользователя'''
@@ -279,7 +280,7 @@ def user_password(message):
     cursor.close()
     connection.close()
     markup_back = types.ReplyKeyboardMarkup()
-    markup_back.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться в выбору пользователя'))
+    markup_back.add(types.KeyboardButton('Вернуться в начало'), types.KeyboardButton('Вернуться к выбору пользователя'))
     bot.send_message(message.chat.id, 'Пользователь зарегистрован')
     
     connection = sqlite3.connect('telebot.sql')
